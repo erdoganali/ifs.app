@@ -1,0 +1,24 @@
+﻿<h1>Approved Candidates </h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>RowKey</th>
+        <th>PartionKey</th>
+        <th>FullName</th>
+        <th>Email</th>
+    </tr>
+
+
+
+    @foreach (var item in ViewBag.cadidates as List<AzureStorageLibrary.Models.Candidate>)
+    {
+        <tr>
+            <td>@item.RowKey</td>
+            <td>@item.PartitionKey</td>
+            <td>@item.fullName</td>
+            <td>@item.email</td>
+        </tr>
+
+    }
+
+</table>

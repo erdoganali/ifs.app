@@ -1,0 +1,21 @@
+﻿ @addTagHelper * ,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model AzureStorageLibrary.Models.Candidate
+
+@{
+ 
+}
+
+<h1 class="display-4">Candidate</h1>
+
+<form class="form-inline" asp-action="SelectCandidate" asp-controller="Home" method="post">
+    <h1 class="display-4">Selecet Candidate</h1>
+    <input class="form-control mr-1" asp-for="candidateId"   /> <br />
+    <input class="form-control mr-1" asp-for="fullName"  /><br />
+    <input class="form-control mr-1" asp-for="email"   /><br />
+    <input class="form-control mr-1" type="hidden" asp-for="RowKey" /><br />
+    <input class="form-control mr-1" type="hidden" asp-for="PartitionKey" /><br />
+
+    <button class="form-control mr-1" asp-controller="Home" asp-action="Approve">Approve</button>
+    <button class="form-control mr-1" asp-controller="Home" asp-action="Reject">Reject</button>
+</form>

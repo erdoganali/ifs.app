@@ -1,0 +1,12 @@
+﻿@addTagHelper * ,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Spy.Recruiter.Mvc.Models.Candidates.Experience
+
+<h1 class="display-4">Candidate Search</h1>
+
+<form class="form-inline" asp-action="Candidate" asp-controller="Home" method="post">
+    TechnologyId: <select class="form-control mr-1" asp-for="technologyId" asp-items="ViewBag.TechItems"></select>   
+    YearsOfExperience:  <input class="form-control mr-1" style="width:50px" asp-for="yearsOfExperience" />  
+    <button class="form-control mr-1" type="submit">Search</button>
+</form>
+

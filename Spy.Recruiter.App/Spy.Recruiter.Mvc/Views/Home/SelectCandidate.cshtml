@@ -1,0 +1,56 @@
+﻿@addTagHelper * ,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Spy.Recruiter.Mvc.Models.Candidates
+
+<table>
+    <tr>
+        <th align="left"> @Html.ActionLink("Search", "")  </th>
+        <th></th>
+        <th></th>
+        <th align="left">  @Html.ActionLink("Approved", "ApprovedCandidates") </th>
+    </tr>
+</table>
+ 
+
+    <h1 class="display-4">Seleceted Candidate (1 / @ViewBag.remaid)</h1>
+
+    <form asp-action="SelectCandidate" asp-controller="Home" method="post">
+        <table>
+            <tr>
+                <th align="left"> Candidate Id  </th>
+                <td><input asp-for="candidateId" class="col-form-label" /></td>
+            </tr>
+            <tr>
+                <th align="left"> Full Name </th>
+                <td><input asp-for="fullName" class="col-form-label" /></td>
+            </tr>
+            <tr>
+                <th align="left"> E-Mail </th>
+                <td><input asp-for="email" class="col-form-label" /></td>
+            </tr>
+
+
+        </table>
+        </br>
+
+        <table>
+            <tr> <th>Technology</th> <th>Years </th> </tr>
+
+            @for (int i = 0; i < Model.experience.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.experience[i].technologyId)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.experience[i].yearsOfExperience)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        </br>
+        <button asp-controller="Home" asp-action="Approve">Approve</button>
+        <button asp-controller="Home" asp-action="Reject">Reject</button>
+    </form>
